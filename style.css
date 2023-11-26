@@ -582,6 +582,20 @@ article a:visited {
 }
 
 
+.people_list_box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.people_list{
+    width: calc(50% - 40px);
+    margin: 30px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
 
 #block2 {
 	clear: both;
