@@ -560,6 +560,9 @@ h2 {
 
 #main h4{
     text-align: left;
+    padding: 1px 0 1px 4px;
+    margin: 12px 0 8px 0;
+    border-left: 1px solid #F73B2A;
 }
 
 article{
