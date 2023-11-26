@@ -11,9 +11,9 @@ $(function(){
 	var content_state = 1; // content の非表示・表示（1 = ON）（0 = OFF）
 	// スライドショーのスピードを変更
 	var first_photo = 0; // 最初の写真を何秒かけて表示するか（1000 = 1秒）
-	var change_photo = 2000; // 写真を何秒かけて切り替えるか
-	var slide_time = 5000; // 何秒ごとに写真の切り替えを実行するか（first_photo と change_photo より長く設定）
-	var change_photo_click = 800; // 写真を何秒かけて切り替えるか（進む・戻るボタンなどクリックによる切り替え）
+	var change_photo = 0; // 写真を何秒かけて切り替えるか
+	var slide_time = -1; // 何秒ごとに写真の切り替えを実行するか（first_photo と change_photo より長く設定） default: 5000
+	var change_photo_click = 0; // 写真を何秒かけて切り替えるか（進む・戻るボタンなどクリックによる切り替え）
 // 調整用 ここまで
 
 	var menu_button = $('#menu_button');
