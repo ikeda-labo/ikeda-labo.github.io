@@ -551,6 +551,17 @@ h2 {
 	font-size: 24px;
 	padding-bottom: 10px;
 }
+
+#main h2{
+    text-align: left;
+    border-bottom: 2px solid #2c50e0;
+    padding: 0.6em;
+}
+
+#main h3{
+    text-align: left;
+}
+
 article{
 	margin-top: 30px; /* slide_control のスペース */
     width: 100%;
