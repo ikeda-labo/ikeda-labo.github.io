@@ -453,6 +453,7 @@ header {
 	z-index: 1;
 }
 #nav_mo {
+    text-align: center;
 }
 #nav_pc {
 	display: none;
