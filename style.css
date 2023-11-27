@@ -564,9 +564,9 @@ h2 {
 #main h4{
     text-align: left;
     font-size: 1.1em;
-    padding: 1px 0 1px 4px;
+    padding: 1px 0 1px 5px;
     margin: 12px 0 8px 0;
-    border-left: 5px solid #F73B2A;
+    border-left: 10px solid #F73B2A;
 }
 
 article{
