@@ -1,707 +1,1148 @@
-<!doctype html>
-<!--[if lte IE 6]><html class="ie8_under ie6"><![endif]-->
-<!--[if IE 7]><html class="ie8_under ie7"><![endif]-->
-<!--[if IE 8]><html class="ie8_under ie8"><![endif]-->
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Ikeda Lab. / RaisonD'etreEngeneeringLab. | 池田研究室 / 存在理由工学研究室</title>
-    <meta name="description" content="ページの説明を記入します。">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="mit/jquery-1.9.1.min.js"></script>
-    <script src="script.js"></script>
-    <!--[if lt IE 9]>
-    <script src="mit/html5shiv.js"></script>
-    <script src="mit/respond.min.js"></script>
-    <![endif]-->
-</head>
+@charset "utf-8";
 
-<body id="top">
-    <div id="menu_button"><span id="menu_button_line"></span></div>
-    <div id="overlay"></div>
-    <header>
-        <!-- 1000px未満のタイトルとメニュー -->
-        <div id="nav_mo">
-            <nav>
-                <ul>
-                    <li><a href="#vision">VISION</a></li>
-                    <li><a href="#people">PEOPLE</a></li>
-                    <li><a href="#for_students">JOINING LAB</a></li>
-                    <li><a href="#publications">PUBLICATIONS</a></li>
-                    <li><a href="#news">NEWS</a></li>
-                    <li><a href="#about">ABOUT/CONTACT</a></li>
-                    <li><a href="https://i-labo.kibe.la/">Only</a></li>
-                </ul>
-            </nav>
-        </div>
-        <!-- 1000px以上のタイトルとメニュー -->
-        <div id="nav_pc">
-            <nav id="nav_left">
-                <ul>
-                    <li><a href="#vision">VISION</a></li>
-                    <li><a href="#people">PEOPLE</a></li>
-                    <li><a href="#for_students">JOINING LAB</a></li>
-                    <li><a href="#publications">PUBLICATIONS</a></li>
-                    <li><a href="#news">NEWS</a></li>
-                    <li><a href="#about">ABOUT/CONTACT</a></li>
-                    <li><a href="https://i-labo.kibe.la/">Only</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+/* sanitize.css Document
+ * ========================================================================== */
+/**
+ * 1. Add border box sizing in all browsers (opinionated).
+ * 2. Backgrounds do not repeat by default (opinionated).
+ */
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  background-repeat: no-repeat; /* 2 */
+}
+
+/**
+ * 1. Add text decoration inheritance in all browsers (opinionated).
+ * 2. Add vertical alignment inheritance in all browsers (opinionated).
+ */
+
+::before,
+::after {
+  text-decoration: inherit; /* 1 */
+  vertical-align: inherit; /* 2 */
+}
+
+/**
+ * 1. Use the default cursor in all browsers (opinionated).
+ * 2. Change the line height in all browsers (opinionated).
+ * 3. Breaks words to prevent overflow in all browsers (opinionated).
+ * 4. Use a 4-space tab width in all browsers (opinionated).
+ * 5. Remove the grey highlight on links in iOS (opinionated).
+ * 6. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+:where(:root) {
+  cursor: default; /* 1 */
+  line-height: 1.5; /* 2 */
+  overflow-wrap: break-word; /* 3 */
+  -moz-tab-size: 4; /* 4 */
+  tab-size: 4; /* 4 */
+  -webkit-tap-highlight-color: transparent; /* 5 */
+  -webkit-text-size-adjust: 100%; /* 6 */
+  text-size-adjust: 100%; /* 6 */
+}
+
+/* Sections
+ * ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+:where(body) {
+  margin: 0;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Edge, Firefox, and Safari.
+ */
+
+:where(h1) {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+ * ========================================================================== */
+
+/**
+ * Remove the margin on nested lists in Chrome, Edge, and Safari.
+ */
+
+:where(dl, ol, ul) :where(dl, ol, ul) {
+  margin: 0;
+}
+
+/**
+ * 1. Correct the inheritance of border color in Firefox.
+ * 2. Add the correct box sizing in Firefox.
+ */
+
+:where(hr) {
+  color: inherit; /* 1 */
+  height: 0; /* 2 */
+}
+
+/**
+ * Remove the list style on navigation lists in all browsers (opinionated).
+ */
+
+:where(nav) :where(ol, ul) {
+  list-style-type: none;
+  padding: 0;
+}
+
+/**
+ * Prevent VoiceOver from ignoring list semantics in Safari (opinionated).
+ */
+
+:where(nav li)::before {
+  content: "\200B";
+  float: left;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ * 3. Prevent overflow of the container in all browsers (opinionated).
+ */
+
+:where(pre) {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+  overflow: auto; /* 3 */
+}
+
+/* Text-level semantics
+ * ========================================================================== */
+
+/**
+ * Add the correct text decoration in Safari.
+ */
+
+:where(abbr[title]) {
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+:where(b, strong) {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+:where(code, kbd, samp) {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+:where(small) {
+  font-size: 80%;
+}
+
+/* Embedded content
+ * ========================================================================== */
+
+/*
+ * Change the alignment on media elements in all browsers (opinionated).
+ */
+
+:where(audio, canvas, iframe, img, svg, video) {
+  vertical-align: middle;
+}
+
+/**
+ * Remove the border on iframes in all browsers (opinionated).
+ */
+
+:where(iframe) {
+  border-style: none;
+}
+
+/**
+ * Change the fill color to match the text color in all browsers (opinionated).
+ */
+
+:where(svg:not([fill])) {
+  fill: currentColor;
+}
+
+/* Tabular data
+ * ========================================================================== */
+
+/**
+ * 1. Collapse border spacing in all browsers (opinionated).
+ * 2. Correct table border color in Chrome, Edge, and Safari.
+ * 3. Remove text indentation from table contents in Chrome, Edge, and Safari.
+ */
+
+:where(table) {
+  border-collapse: collapse; /* 1 */
+  border-color: currentColor; /* 2 */
+  text-indent: 0; /* 3 */
+}
+
+/* Forms
+ * ========================================================================== */
+
+/**
+ * Remove the margin on controls in Safari.
+ */
+
+:where(button, input, select) {
+  margin: 0;
+}
+
+/**
+ * Correct the inability to style buttons in iOS and Safari.
+ */
+
+:where(button, [type="button" i], [type="reset" i], [type="submit" i]) {
+  -webkit-appearance: button;
+}
+
+/**
+ * Change the inconsistent appearance in all browsers (opinionated).
+ */
+
+:where(fieldset) {
+  border: 1px solid #a0a0a0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Edge, and Firefox.
+ */
+
+:where(progress) {
+  vertical-align: baseline;
+}
+
+/**
+ * 1. Remove the margin in Firefox and Safari.
+ * 3. Change the resize direction in all browsers (opinionated).
+ */
+
+:where(textarea) {
+  margin: 0; /* 1 */
+  resize: vertical; /* 3 */
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome, Edge, and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+:where([type="search" i]) {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Safari.
+ */
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/**
+ * Remove the inner padding in Chrome, Edge, and Safari on macOS.
+ */
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style upload buttons in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+ * ========================================================================== */
+
+/*
+ * Add the correct styles in Safari.
+ */
+
+:where(dialog) {
+  background-color: white;
+  border: solid;
+  color: black;
+  height: -moz-fit-content;
+  height: fit-content;
+  left: 0;
+  margin: auto;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+:where(dialog:not([open])) {
+  display: none;
+}
+
+/*
+ * Add the correct display in Safari.
+ */
+
+:where(details > summary:first-of-type) {
+  display: list-item;
+}
+
+/* Accessibility
+ * ========================================================================== */
+
+/**
+ * Change the cursor on busy elements in all browsers (opinionated).
+ */
+
+:where([aria-busy="true" i]) {
+  cursor: progress;
+}
+
+/*
+ * Change the cursor on disabled, not-editable, or otherwise
+ * inoperable elements in all browsers (opinionated).
+ */
+
+:where([aria-disabled="true" i], [disabled]) {
+  cursor: not-allowed;
+}
+
+/*
+ * Change the display on visually hidden accessible elements
+ * in all browsers (opinionated).
+ */
+
+:where([aria-hidden="false" i][hidden]) {
+  display: initial;
+}
+
+:where([aria-hidden="false" i][hidden]:not(:focus)) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
 
 
-    <!-- スライドショー START -->
-    <div id="content_wrap_slide">
-        <div id="stage">
-            <ul><!-- liタグ 枚数自由 -->
-                <li><img src="images/room.png"></li>
-            </ul>
-<!--        
-            <div id="slide_control">
-                <span id="prev_button">
-                    <img src="images/prev.png" alt="戻る"/>
-                </span>
-                <span id="number_last"></span>
-                <span id="next_button">
-                    <img src="images/next.png" alt="進む"/>
-                </span>
-                <span id="play_stop"></span>
-            </div>
--->
-        </div>
-    </div>
 
 
-    <article>
-        <div id="main">
-            <section>
-                <div id="vision">
-                    <div id="content2">
-                        <h2>VISION</h2>
-                        <div class="parts5">
-                            <div class="space30">
-                                <p>愛知淑徳大学池田研究室は2019年に立ち上げた研究室です．本学において，大学での学びと卒業後を繋ぐ取り組みとして卒業研究を位置づけ，様々な研究に取組んでいます．</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!--vision-->
 
-            <section>
-                <div id="people">
-                    <div id="content3">
-                        <h2>PEOPLE / メンバー</h2>
-                        <h3>FACULTY</h3>
-                        <div class="people_list_box">
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">池田 光雪 / 講師</div>
-                                    <p class="text1">IKEDA Kosetsu / Assistant Professor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <h3>UNDERGRADUATES</h3>
-                        <h4>B4</h4>
-                        <div class="people_list_box">
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">奥村 宗平 / Okumura Sohei</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">可兒 遥 / Kani Haruka</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">後藤 悠河 / Goto Yuga</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">杉浦 凌太 / Sugiura Ryota</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">杉戸 佳乃 / Sugito Kano</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">杉本 祐樹 / Sugimoto Yuki</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">中村 桜子 / Nakamura Sakurako</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">水谷 泰基 / Mizutani Taiki</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">三好 智 / Miyoshi Satoru</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                        </div>
-                        <h4>B3</h4>
-                        <div class="people_list_box">
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">浅野 響 / Aano Kyo</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">伊藤 悠翔 / Ito Yuto</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">伊藤 優那 / Ito Yuna</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">上野 慎 / Ueno Shin</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">尾浦 憲武 / Oura Noritake</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">大見 美皓 / Omi Mihiro</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">小笠原 敬健 / Ogasawara Noritake</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">兼山 野々香 / Kaneyama Nonoka</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">菅 光侑斗 / Suga Miuto</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">坪井 隼矢 / Tsuboi Shunya</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">鳥井 一樹 / Torii Kazuki</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">本田 知睦 / Honda Harunobu</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">三村 颯太 / Mimura Sota</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">八木 颯平 / Yagi Sohei</div>
-                                    <p class="text1"></p>
-                                </div>
-                            </div>
-                        </div>
+* {
+	margin: 0px;
+}
+body {
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	-webkit-text-size-adjust: 100%;
+}
+body p {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+img {
+	border-style: none;
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+#menu_button {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	cursor: pointer;
+	z-index: 4;
+	display: inline-block;
+	width: 45px;
+	height: 45px;
+}
+#menu_button_line {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 16px;
+	height: 2px;
+	margin: -1px 0px 0px -7px;
+	background-color: #000000;
+	transition-duration: 0.2s;
+}
+#menu_button_line:before {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 16px;
+	height: 2px;
+	background-color: #000000;
+	transition-duration: 0.3s;
+	margin-top: -7px;
+}
+#menu_button_line:after {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 16px;
+	height: 2px;
+	background-color: #000000;
+	transition-duration: 0.3s;
+	margin-top: 5px;
+}
+#menu_button .close {
+	background-color: transparent;
+}
+#menu_button .close:before {
+	margin-top: 0px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+#menu_button .close:after {
+	margin-top: 0px;
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+}
+#overlay {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(255,255,255,0.8);
+	z-index: 2;
+}
 
-                        <h3>ALUMNI</h3>
 
-                        <h4>2023AY</h4>
-                        <div class="people_list_box">
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">白木 瑛史 / Shiraki Eiji / Bachelor</div>
-                                    <p class="text1">学内連絡ダイジェストツールの開発</p>
-                                </div>
-                            </div>
- <!--
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">淑徳 花子 / Syukutoku Hanako / Bachelor</div>
-                                    <p class="text1">テーマ</p>
-                                </div>
-                            </div>
---> 
-                        </div>
 
-                        <h4>2022AY</h4>
-                        <div class="people_list_box">
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">荒木 真由 / Araki Mayu / Bachelor</div>
-                                    <p class="text1">選択的夫婦別姓制度に関する考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">伊勢谷 直也 / Isetani Naoya / Bachelor</div>
-                                    <p class="text1">ユニバーサルデザインマップの作成: 愛知淑徳大学長久手キャンパスを題材に</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">伊藤 彰悟 / Ito Syogo / Bachelor</div>
-                                    <p class="text1">現代の会話におけるマナーに関する検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">井村 祥大 / Imura Syota / Bachelor</div>
-                                    <p class="text1">電動二輪車の今後の普及に関する一考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">加藤 大典 / Kato Daisuke / Bachelor</div>
-                                    <p class="text1">学部生向け文献管理システムの開発</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">川瀬 公希 / Kawase Koki / Bachelor</div>
-                                    <p class="text1">EVは若者に乗りたいと思われているのか</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">都筑 梨華 / Tsuduki Rinka / Bachelor</div>
-                                    <p class="text1">ペット動画とバーチャルペットのセラピー効果の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">布目 晃基 / Nunome Koki / Bachelor</div>
-                                    <p class="text1">ミュージックビデオの字幕に適した文字色・背景色の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">野々 千速 / Nono Chihaya / Bachelor</div>
-                                    <p class="text1">公共図書館における感染症対策の検討: 岡崎市立中央図書館を例に
-                                        </p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">藤浪 令納 / Fujinami Reina / Bachelor</div>
-                                    <p class="text1">マスクの種類が印象形成に及ぼす影響の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">吉兼 直暉 / Yoshikane Naoki / Bachelor</div>
-                                    <p class="text1">家庭における子どもとビデオゲームの関係の考察: スマホゲームの課金に着目して</p>
-                                </div>
-                            </div>
-                        </div>
-                     
-                        <h4>2021AY</h4>
-                        <div class="people_list_box">
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">荒川 陸人 / Arakawa Rikuto / Bachelor</div>
-                                    <p class="text1">オンライン創作小説投稿サイトの変遷と今後に関する考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">大島 彰勲 / Oshima Syokun / Bachelor</div>
-                                    <p class="text1">J リーグのビジネスモデル改善に関する検討: 欧州サッカーリーグとの比較から</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">小木曽 華乃 / Ogiso Hanano / Bachelor</div>
-                                    <p class="text1">アニメーション作品における2Dと3Dエフェクトの印象比較</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">加藤 真一 / Kato Shinichi / Bachelor</div>
-                                    <p class="text1">状況別のふさわしい音楽に関する検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">加納 颯也 / Kano Soya / Bachelor</div>
-                                    <p class="text1">定量的なライトノベルの分析の試み</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">木谷 憲慎 / Kitani Kenshin / Bachelor</div>
-                                    <p class="text1">学生のメディアリテラシーの検討: シンギュラリティを基に</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">近藤 杏奈 / Kondo Anna / Bachelor</div>
-                                    <p class="text1">ファッショントレンドに対する知識と意識の関係の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">鷺池 真帆 / Sagiike Maho / Bachelor</div>
-                                    <p class="text1">低価格帯ファッションブランドのSDGsへの取り組みの検討: 中価格帯ブランド・高価格帯ブランドとの比較から</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">佐藤 佑哉 / Sato Yuya / Bachelor</div>
-                                    <p class="text1">社会人基礎力醸成方法の整理と検討: PBL とインターンシップを中心として</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">重松 大貴 / Shigematsu Daiki / Bachelor</div>
-                                    <p class="text1">COVID-19が大学生の生活に与えた影響に関する検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">関根 裕己 / Sekine Yuki / Bachelor</div>
-                                    <p class="text1">Twitterのトレンド機能がニュースの読解に与える影響の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">高野 将矢 / Takano Masaya / Bachelor</div>
-                                    <p class="text1">コンシューマーゲームを取り巻く環境や文化の変化に関する一考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">田口 千沙都 / Taguchi Chisato / Bachelor</div>
-                                    <p class="text1">SNS 広告形式と利用者が受ける印象の関係性: Instagram 広告の比較から</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">日置 景介 / Hioki Keisuke / Bachelor</div>
-                                    <p class="text1">大学における新たな学習指導案の検討: 授業形態の比較から</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">前田 拓海 / Maeda Takumi / Bachelor</div>
-                                    <p class="text1">社会人の抑うつ状態と自己肯定感の関係の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">水谷 亮介 / Mizutani Ryosuke / Bachelor</div>
-                                    <p class="text1">効果的なYouTube動画サムネイルの検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">山口 裕矢 / Yamaguchi Yuya / Bachelor</div>
-                                    <p class="text1">自宅における作業に適切な壁紙色の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">吉田 陵平 / Yoshida Ryohei / Bachelor</div>
-                                    <p class="text1">遠隔授業において学習意欲を高める方法の検討</p>
-                                </div>
-                            </div>
-                        </div>
-                     
-                        <h4>2020AY</h4>
-                        <div class="people_list_box">
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">新井 日奈子 / Arai Hinako / Bachelor</div>
-                                    <p class="text1">チャットアプリの既読表示機能の有無によるストレスの状態の変化</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">宇佐美 友基 / Usami Tomoki / Bachelor</div>
-                                    <p class="text1">図書館関係の権利制限規定の見直しに関する一考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">小川 一真 / Ogawa Kazuma / Bachelor</div>
-                                    <p class="text1">転売の違法性に関する一考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">加藤 乃得 / Kato Noel / Bachelor</div>
-                                    <p class="text1">新型コロナウイルス感染症による年越しの人混みの変化</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">田中 由依 / Tanaka Yui / Bachelor</div>
-                                    <p class="text1">文章の文字色と読後感情の関係</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">和田 奈津実 / Wada Natsumi / Bachelor</div>
-                                    <p class="text1">現代における大学生の友情の形: 親友と友人の機能に着目して</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">渡辺 ほのか / Watanabe Honoka / Bachelor</div>
-                                    <p class="text1">店頭販売における接客方法の一検討: ファストファッションショップにおける接客を中心として</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">山本 純里 / Yamamoyo Jyuri / Bachelor</div>
-                                    <p class="text1">利用者が使いやすいと感じる図書館について: 什器デザインと色合いからの検討</p>
-                                </div>
-                            </div>
-                        </div>
+header {
+	background-color: #FFFFFF;
+	-webkit-box-shadow: 1px 1px 1px 0px #C8C8C8;
+	box-shadow: 1px 1px 1px 0px #C8C8C8;
+	z-index: 1;
+}
+#nav_mo {
+    text-align: center;
+}
+#nav_pc {
+	display: none;
+}
+#site_title_mo {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+}
+#site_title_pc {
+}
 
-                        <h4>2019AY</h4>
-                        <div class="people_list_box">
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">石川 宗結 / Ishikawa Takayu / Bachelor</div>
-                                    <p class="text1">CDと特典の抱き合わせ販売に対する一考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">大口 真由 / Oguchi Mayu / Bachelor</div>
-                                    <p class="text1">若者の読書離れの再検証: 大学生の読書に対する認識の実態調査を基に</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">太田 彩水 / Ohta Ayami / Bachelor</div>
-                                    <p class="text1">リアル書店との連携を重視した書籍購入・管理システムの提案</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">菊池 菜摘 / Kikuchi Natsumi / Bachelor</div>
-                                    <p class="text1">読書する空間としてのブックカフェに関する検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">黒田 紗世 / Kuroda Sayo / Bachelor</div>
-                                    <p class="text1">子ども読書活動推進基本計画からみた射水市公共図書館基本方針の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">小島 知将 / Kojima Tomomasa / Bachelor</div>
-                                    <p class="text1">テレビ局による視聴率の差異に関する一考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">小林 明日香 / Kobayashi Asuka / Bachelor</div>
-                                    <p class="text1">野良猫問題の解決に向けた保護猫図書館の提案</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">鈴木 あゆみ / Suzuki Ayumi / Bachelor</div>
-                                    <p class="text1">読書意欲を掻き立てる POP の種類の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">瀧脇 真奈 / Takiwaki Mana / Bachelor</div>
-                                    <p class="text1">心の居場所としての学校図書館に対する生徒の認識に関する一考察</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">都築 知古 / Tsuduki Chikako / Bachelor</div>
-                                    <p class="text1">日本における書籍と雑誌の返品率の増加要因の分析</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">寺本 彩乃 / Teramoto Ayano / Bachelor</div>
-                                    <p class="text1">図書館における飲食の可否に関する検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">戸嶋 彩乃 / Toshima Ayano / Bachelor</div>
-                                    <p class="text1">本の効果的な宣伝方法の検討: 映画化を例に</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">鳥田 京佳 / Torita Kyoka / Bachelor</div>
-                                    <p class="text1">交通安全意識向上をねらいとした児童向け教材の開発</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">荷田 大悟 / Hasuda Daigo / Bachelor</div>
-                                    <p class="text1">日本のラーニングコモンズにおける人的支援に必要な要素の検討</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">前田 志帆 / Maeda Shiho / Bachelor</div>
-                                    <p class="text1">公共図書館における構成計画の課題と今後の変化: 複合施設の事例を中心に</p>
-                                </div>
-                            </div>
-                            <div class="people_list">
-                                <div class="people_text">
-                                    <div class="people_list_title">山田 駿 / Yamada Shun / Bachelor</div>
-                                    <p class="text1">フェイクニュースの真偽判断能力と文章読解能力の関係</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!--People-->
 
-            <section>
-                <div id="for_students">
-                    <div id="content4">
-                        <h2>JOINING LAB</h2>
-                        <h3>2024年度配属（2022年11月時点で2年生の情報システム専修の学生）</h3>
-                        <h4>プロジェクト説明会</h4>
-                        <ul>
-                            <li>2023/12/8(金) 16:50-18:20@新1号棟 113教室</li>
-                            <li>2023/12/13(水) 15:10-16:40@新1号棟 113教室</li>
-                        </ul>
-                        <p>研究テーマの決め方や過去の研究テーマを詳しく説明します．また，ゼミに属す先輩たちと自由に話し合う機会を設けます．事前連絡は不要です．<p>
 
-                        <h4>授業見学会</h4>
-                        <ul>
-                            <li>2023/12/6(水) 13:30－15:00@ワークプレイス</li>
-                            <li>2023/12/13(水) 13:30－15:00@ワークプレイス</li>
-                            <li>2023/12/20(水) 13:30－15:00@ワークプレイス</li>
-                        </ul>    
-                        <p>3年生の授業（卒業プロジェクトII）を自由に見学できます．事前連絡は不要です．<p>
+#nav_mo > nav {
+	position: fixed;
+	margin-top: -1000px;
+	width: 100%;
+	z-index: 3;
+	background-color: #FFFFFF;
+}
+#nav_mo > nav > ul {
+	padding-left: 0px;
+}
+#nav_mo > nav > ul > li {
+	list-style-type: none;
+	border-bottom: 1px solid #C0C0C0;
+}
+#nav_mo > nav > ul > li > a:link {
+	color: #000000;
+	text-decoration: none;
+	display: block;
+	padding-top: 15px; /* リンク幅 */
+	padding-bottom: 15px;
+}
+#nav_mo > nav > ul > li > a:visited {
+	color: #000000;
+	text-decoration: none;
+	display: block;
+	padding-top: 15px; /* リンク幅 */
+	padding-bottom: 15px;
+}
 
-                        <h4>プログラミング勉強会見学</h4>
-                        <ul>
-                            <li>2023/12/6(水) 16:50－19:00@11号棟2F ユーザビリティ実験室</li>
-                            <li>2023/12/13(水) 16:50－19:00@11号棟2F ユーザビリティ実験室</li>
-                            <li>2023/12/20(水) 16:50－19:00@11号棟2F ユーザビリティ実験室</li>
-                        </ul>    
-                        <p>有志で取りくんでいる競技プログラミング勉強会の見学ができます．事前連絡は不要です．<p>
 
-                        <h4>その他</h4>
-                        <p>配属希望の提出方法やスケジュールなどCampus Squareで個別配信されている資料を参照してください．</p>
 
-                        <h3>愛知淑徳大学生向け</h3>
-                        <p>本研究室では，研究室のビジョンに関心を持つ全ての人を歓迎します．時機に関わらず，まずはメールでご連絡ください．</p>
-                        <p>年にもよりますが，競技プログラミング（主にPython）を題材としたプログラミング等の勉強会も行っています．興味がある方は是非ご連絡ください．</p>
-                        <ul>
-                            <li>愛知淑徳学生(1,2年生): 論文を書いてみたい人，プログラミングに興味がある人，（目的ではなく手段として）基本情報技術者などの資格取得に意欲がある人など．他学科生でも誰でも歓迎です</li>
-                            <li>情報システム専修2年生: 卒業プロジェクト配属期間以外でも見学や相談等は可能です</li>
-                        </ul>    
-                    </div>
-                </div><!--for students-->
-            </section>
+/* slideshow */
+#content_wrap_slide {
+	padding-top: 70px;
+	background-color: #FFFFFF;
+}
+#stage {
+	background-color: #FDFDFD;
+	position: relative;
+	margin: 0px auto;
+	-webkit-box-shadow: 2px 2px 2px 0px #C8C8C8;
+	box-shadow: 2px 2px 2px 0px #C8C8C8;
+}
+#stage ul {
+	padding: 0px;
+	position:relative;
+}
+#stage ul li {
+	width: 100%;
+	list-style-type: none;
+	position:absolute;
+	opacity: 0;
+}
+#stage img {
+	max-width: 100%;
+	height: auto;
+}
+#slide_control {
+	position: absolute;
+}
+[id^='photo_'] {
+	cursor: pointer;
+}
+#prev_button {
+	cursor: pointer;
+}
+#next_button {
+	cursor: pointer;
+}
+#play_stop {
+	cursor: pointer;	
+}
 
-            <section>
-                <div id="publications">
-                    <div id="content5">
-                        <h2>PUBLICATIONS</h2>
-                        <h3>国内発表 / Domestic Conference</h3>
-                        <ul class="space20">
-                            <li>池田光雪, "ChatGPTによる書誌データ作成の一試行, " in 情報メディア学会第25回研究会, 日本事務器, 東京都渋谷区, Nov. 4, 2023, 2pp.</li>
-                            <li>加藤大典，池田光雪, "学部生向け文献管理システムの開発," in 情報処理学会第85回全国大会, 電気通信大学, 東京都調布市, Mar. 3, 2023, 2pp.</li>
-                            <li>瀧脇真奈, 池田光雪, "心の居場所としての学校図書館に対する生徒の認識に関する一考察," in 中部図書館情報学会 2019年度研究発表会, 椙山女学園大学, 愛知県名古屋市, Dec. 15, 2019, 2pp.</li>
-                        </ui>
-                    </div>
-                </div>
-            </section>
 
-            <section>
-                <div id="news">
-                    <div id="content6">
-                        <h2>NEWS</h2>
-                        <ul class="space20">
-                            <li>2023年11月27日 webサイトをリニューアル中です</li>
-                        </ui>
-                    </div>
-                </div>
-            </section><!--News-->
 
-            <section>
-                <div id="about">
-                    <div id="content7">
-                        <h2>ABOUT/CONTACT</h2>
-                        <h3>研究室</h2>
-                        <div class="parts5">
-                            <div class="space30">
-                                <p>愛知淑徳大学 長久手キャンパス 研究棟6F 601室</p>
-                            </div>
-                        </div>
-                        <h3>連絡先</h2>
-                        <div class="parts5">
-                            <div class="space30">
-                                <p>E-MAIL: kikeda [at] aasa.ac.jp</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!--About-->
-        </div>
-    </article>
+h1 {
+    text-align: center;
+	font-size: 1.5em;
+	padding-bottom: 10px;
+}
+h2 {
+    text-align: center;
+	font-size: 1.5em;
+	padding-bottom: 10px;
+}
 
-    <div id="back_top"><img src="images/back-top.png" alt="トップへ戻る"/></div>
+#main h3{
+    text-align: left;
+    font-size: 1.4em;
+    border-bottom: 2px solid #F73B2A;
+    padding: 0.6em 0.6em 0em 0.6em;
+}
 
-    <footer>
-        <p>This website by RaisonD'etreEngeneeringLab. is licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">CC BY-NC 4.0 International License</a>.</p> 
-        <!-- 下の行を変更したり削除すると、無料テンプレートの利用規約違反となります。 -->
-        <p><a href="http://japanism.info/free-template.html" target="_blank" rel="nofollow">Free Template</a></p>
-        <!-- 上の行を変更したり削除すると、無料テンプレートの利用規約違反となります。 -->
-    </footer>
-</body>
-</html>
+#main h4{
+    text-align: left;
+    font-size: 1.1em;
+    padding: 1px 0 1px 5px;
+    margin: 12px 0 8px 0;
+    border-left: 10px solid #F73B2A;
+}
+
+article{
+	margin-top: 30px; /* slide_control のスペース */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center
+
+}
+article a:link {
+	color: #000000;
+}
+article a:visited {
+	color: #8E8E8E;
+}
+
+
+.people_list_box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.people_list{
+    width: calc(50% - 40px);
+    margin: 30px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.people_list_title{
+    font-size: 1.2em;
+}
+
+#block2 {
+	clear: both;
+	border-bottom: 1px solid #CCCCCC;
+}
+#block3 {
+	clear: both;
+	border-bottom: 1px solid #CCCCCC;
+}
+#block4 {
+	clear: both;
+	border-bottom: 1px solid #CCCCCC;
+}
+#block5 {
+	clear: both;
+	border-bottom: 1px solid #CCCCCC;
+}
+#block6 {
+	clear: both;
+	border-bottom: 1px solid #CCCCCC;
+}
+#block7 {
+	clear: both;
+/* 	border-bottom: 1px solid #CCCCCC; */
+}/* footer に border が設定されているので footer 直前の #block の border はコメントアウト */
+#block8 {
+	clear: both;
+	border-bottom: 1px solid #CCCCCC;
+}
+#block9 {
+	clear: both;
+	border-bottom: 1px solid #CCCCCC;
+}
+#block10 {
+	clear: both;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+
+
+#content2 {
+	padding-top: 40px; /* slide_control 下部 */
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#content3 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#content4 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#content5 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#content6 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#content7 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#content8 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#content9 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#content10 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+
+
+/* parts START */
+/* parts1 parts2 width 500px */
+.parts1 {
+	max-width: 500px;
+	margin: 0px auto;
+}
+.parts1 .img1 {
+	max-width: 500px;
+	margin-bottom: 20px;
+}
+.parts1 .img2 {
+	max-width: 500px;
+	margin-bottom: 20px;
+}
+.parts1 .img3 {
+	max-width: 500px;
+	margin-bottom: 20px;
+}
+.parts1 .text1 {
+	font-size: 90%;
+	text-align: left;
+}
+.parts1 .text2 {
+	font-size: 90%;
+}
+.parts1 .text3 {
+	font-size: 22px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+.parts1 .text4 {
+	font-size: 90%;
+	color: #A3A3A3;
+	text-align: left;
+}
+.parts1 .text5 {
+	font-size: 90%;
+	color: #A3A3A3;
+}
+.parts1 .text6 {
+	font-size: 22px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	text-align: left;
+}
+.parts2 {
+}
+
+/* parts3 parts4 width 500px */
+.parts3 {
+	height: auto;
+	overflow: hidden;
+	max-width: 500px;
+	margin: 0px auto;
+}
+.parts3 h2 {
+	padding-top: 20px;
+}
+.parts3 .img {
+}
+.parts3 .text {
+	text-align: left;
+}
+.parts3 .text1 {
+	font-size: 90%;
+}
+.parts3 .text2 {
+	font-size: 90%;
+	color: #A3A3A3;
+}
+.parts3 .text3 {
+	font-size: 80%;
+}
+.parts3 .text4 {
+	font-size: 80%;
+	color: #A3A3A3;
+}
+.parts4 {
+	margin-top: 40px;
+}
+
+/* parts5 */
+.parts5 {
+	max-width: 1000px;
+	margin: 0px auto;
+}
+.parts5 .space10 {
+	margin-top: 10px;
+}
+.parts5 .space20 {
+	margin-top: 20px;
+}
+.parts5 .space30 {
+	margin-top: 30px;
+}
+.parts5 .text1 {
+	text-align: left;
+}
+.parts5 .indent {
+	text-align: left;
+	text-indent: 1em;
+}
+.parts5 .text2 {
+	text-align: left;
+	color: #A3A3A3;
+}
+.parts5 .text3 {
+	text-align: left;
+	font-size: 90%;
+}
+.parts5 .text4 {
+	text-align: left;
+	font-size: 90%;
+	color: #A3A3A3;
+}
+.parts5 .text5 {
+	text-align: left;
+	font-size: 90%;
+	text-indent: 1em;
+}
+/* parts END */
+
+
+
+.supplement {
+	font-size: 90%;
+	color: #6C6C6C;
+}
+#back_top {
+	display: none;
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	cursor: pointer;
+}
+
+
+
+/* footer */
+footer {
+    text-align: center;
+	clear: both;
+	margin-top: 20px;
+	border-top: 1px solid #BBBBBB;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+footer a:link {
+	color: #000000;
+	text-decoration: none;
+}
+footer a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+
+
+@media only screen and (min-width: 1000px) { /* js ブレークポイント[1000] */
+#menu_button {
+	display: none;
+	color: #D0D0D0;
+}
+
+/* slideshow */
+#content_wrap_slide {
+	background-color: #FDFDFD; 
+}
+
+#nav_mo {
+	display: none;
+}
+#nav_pc {
+	display: block;
+}
+#site_title_mo {
+	display: none;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	height: 70px;
+}
+
+#nav_pc > #site_title_pc {
+    float: left;	
+    width: 20%;
+}
+#nav_pc > #nav_left {
+    float: left;
+    text-align: right;
+}
+#nav_pc > #nav_right {
+    float: left;	
+    width: 40%;
+	text-align: left;
+}
+
+#nav_pc > nav {
+	position: static;
+	margin-top: 0px;
+	width: auto;
+	font-size: 90%;
+	background-color: #FFFFFF;
+}
+#nav_pc > nav > ul {
+	padding-top: 40px;
+	padding-left: 0px;
+}
+#nav_pc > nav > ul > li {
+	border-bottom: 0px solid #000000;
+	display: inline;
+	padding-left: 15px; /* メニューの幅 */
+	padding-right: 15px; /* メニューの幅 */
+}
+#nav_pc > nav > ul > li > a:link {
+	color: #000000;
+	text-decoration: none;
+}
+#nav_pc > nav > ul > li > a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+
+
+/* parts START */
+/* parts1 parts2 width 970px */
+.parts1 {
+	max-width: 970px;
+	height: auto;
+	overflow: hidden;
+}
+.parts1 .img1 {
+	float: left;
+	max-width: 300px;
+	margin-bottom: 0px;
+}
+.parts1 .img2 {
+	float: left;
+	max-width: 300px;
+	padding-left: 35px;
+	padding-right: 35px;
+	margin-bottom: 0px;
+}
+.parts1 .img3 {
+	float: left;
+	max-width: 300px;
+	margin-bottom: 0px;
+}
+.parts2 {
+	margin-top: 40px;
+}
+
+/* parts3 parts4 width 970px */
+.parts3 {
+	max-width: 970px;
+}
+.parts3 h2 {
+	padding-top: 0px;
+}
+.parts3 .img {
+	max-width: 300px;
+	float: left;
+}
+.parts3 .text {
+	max-width: 640px;
+	padding-left: 30px;
+	float: left;
+}
+/* parts END */
+}
+
+@media only screen and (min-width: 1220px) {
+header {
+}
+#stage {
+	max-width: 1200px;
+}
+#content2 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+#content3 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+#content4 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+#content5 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+#content6 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+#content7 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+#content8 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+#content9 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+#content10 {
+	max-width: 1200px;
+	margin: 0px auto;
+}
+
+
+
+#nav_pc > nav > ul > li {
+/* 	padding-left: 20px; */ /* メニューの幅 */
+/* 	padding-right: 20px; */ /* メニューの幅 */
+}
+
+
+
+/* parts START */
+/* parts1 parts2 width 1200px */
+.parts1 {
+	max-width: 1200px;
+	margin: 0px;
+}
+.parts1 .img1 {
+	max-width: 370px;
+}
+.parts1 .img2 {
+	max-width: 370px;
+	padding-left: 45px;
+	padding-right: 45px;
+}
+.parts1 .img3 {
+	max-width: 370px;
+}
+.parts2 {
+	margin-top: 60px;
+}
+
+/* parts3 parts4 width 1200px */
+.parts3 {
+	max-width: 1200px;
+	margin: 0px 0px;
+}
+.parts3 .img {
+	max-width: 400px;
+}
+.parts3 .text {
+	max-width: 760px;
+	padding-left: 40px;
+}
+.parts4 {
+	margin-top: 60px;
+}
+/* parts END */
+}
+
+
+@media only screen and (min-width: 1500px) {
+header {
+}
+#stage {
+	max-width: 1400px;
+}
+#content2 {
+	max-width: 1400px;
+}
+#content3 {
+	max-width: 1400px;
+}
+#content4 {
+	max-width: 1400px;
+}
+#content5 {
+	max-width: 1400px;
+}
+#content6 {
+	max-width: 1400px;
+}
+#content7 {
+	max-width: 1400px;
+}
+#content8 {
+	max-width: 1400px;
+}
+#content9 {
+	max-width: 1400px;
+}
+#content10 {
+	max-width: 1400px;
+}
+
+
+
+#nav_pc > nav > ul > li {
+ 	padding-left: 20px; /* メニューの幅 */
+ 	padding-right: 20px; /* メニューの幅 */
+}
+#nav_pc > #nav_left > ul > li:last-child {
+ 	padding-right: 0px; /* メニューの幅（title.png の左側） */
+}
+#nav_pc > #nav_right > ul > li:first-child {
+ 	padding-left: 0px;  /* メニューの幅（title.png の右側） */
+}
+
+
+
+/* parts START */
+/* parts1 parts2 width 1400px */
+.parts1 {
+	max-width: 1400px;
+}
+.parts1 .img1 {
+	max-width: 420px;
+}
+.parts1 .img2 {
+	max-width: 420px;
+	padding-left: 70px;
+	padding-right: 70px;
+}
+.parts1 .img3 {
+	max-width: 420px;
+}
+
+/* parts3 parts4 width 1400px */
+.parts3 {
+	max-width: 1400px;
+}
+.parts3 .img {
+	max-width: 500px;
+}
+.parts3 .text {
+	max-width: 860px;
+	padding-left: 40px;
+}
+/* parts END */
+}
