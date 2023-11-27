@@ -834,6 +834,7 @@ article a:visited {
 
 /* footer */
 footer {
+    text-align: center;
 	clear: both;
 	margin-top: 20px;
 	border-top: 1px solid #BBBBBB;
