@@ -587,6 +587,7 @@ article a:visited {
 
 
 .people_list_box{
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -600,10 +601,27 @@ article a:visited {
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
-
 .people_list_title{
     font-size: 1.2em;
 }
+
+.publication_list_box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.publication_list{
+    width: calc(100% - 40px);
+    margin: 30px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    border-top: 2px solid #F73B2A;
+    padding: 10px;
+}
+
 
 #block2 {
 	clear: both;
