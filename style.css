@@ -609,7 +609,7 @@ article a:visited {
     display: flex;
     flex-wrap: wrap;
 }
-.publication_list{
+.publication{
     width: calc(100% - 40px);
     margin: 30px 20px;
     display: -webkit-box;
