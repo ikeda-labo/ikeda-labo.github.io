@@ -593,7 +593,7 @@ article a:visited {
 }
 .people_list{
     width: calc(50% - 40px);
-    margin: 30px 20px;
+    margin: 20px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
