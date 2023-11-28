@@ -608,10 +608,11 @@ article a:visited {
 .publication_list_box{
     display: flex;
     flex-wrap: wrap;
+    padding-top: 20px
 }
 .publication{
     width: calc(100% - 40px);
-    margin: 30px 20px;
+    margin: 10px 20px 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
