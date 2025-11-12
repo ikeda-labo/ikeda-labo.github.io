@@ -606,8 +606,10 @@ article a:visited {
 }
 
 .publication_list_box{
+	/*
     display: flex;
     flex-wrap: wrap;
+	*/
     padding-top: 20px
 }
 .publication{
@@ -1165,3 +1167,4 @@ header {
 }
 /* parts END */
 }
+
