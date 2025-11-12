@@ -617,7 +617,9 @@ article a:visited {
     margin: 10px 20px 10px;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+	/*
+	display: flex;
+	*/
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -1167,4 +1169,5 @@ header {
 }
 /* parts END */
 }
+
 
